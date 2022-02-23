@@ -131,6 +131,7 @@ namespace InventoryManager
             this.saveAddPart.TabIndex = 8;
             this.saveAddPart.Text = "Save";
             this.saveAddPart.UseVisualStyleBackColor = true;
+            this.saveAddPart.Click += new System.EventHandler(this.saveAddPart_Click);
             // 
             // cancelAddPart
             // 

@@ -142,6 +142,7 @@ namespace InventoryManager
             this.saveModifyPart.TabIndex = 7;
             this.saveModifyPart.Text = "Save";
             this.saveModifyPart.UseVisualStyleBackColor = true;
+            this.saveModifyPart.Click += new System.EventHandler(this.saveModifyPart_Click);
             // 
             // idCompanyLabel
             // 
@@ -242,6 +243,7 @@ namespace InventoryManager
             this.Controls.Add(this.label1);
             this.Name = "modifyPart";
             this.Text = "modifyPart";
+            this.Load += new System.EventHandler(this.modifyPart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

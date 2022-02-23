@@ -44,14 +44,17 @@ namespace InventoryManager
             this.label1 = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridParts = new System.Windows.Forms.DataGridView();
+            this.dataGridAssociated = new System.Windows.Forms.DataGridView();
             this.addButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAssociated)).BeginInit();
             this.SuspendLayout();
             // 
             // textMin
@@ -170,6 +173,7 @@ namespace InventoryManager
             this.searchButton.TabIndex = 33;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchBox
             // 
@@ -178,31 +182,32 @@ namespace InventoryManager
             this.searchBox.Size = new System.Drawing.Size(258, 27);
             this.searchBox.TabIndex = 34;
             // 
-            // dataGridView1
+            // dataGridParts
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(549, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(715, 225);
-            this.dataGridView1.TabIndex = 35;
+            this.dataGridParts.AllowUserToAddRows = false;
+            this.dataGridParts.AllowUserToDeleteRows = false;
+            this.dataGridParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridParts.Location = new System.Drawing.Point(549, 161);
+            this.dataGridParts.Name = "dataGridParts";
+            this.dataGridParts.ReadOnly = true;
+            this.dataGridParts.RowHeadersWidth = 51;
+            this.dataGridParts.RowTemplate.Height = 29;
+            this.dataGridParts.Size = new System.Drawing.Size(715, 225);
+            this.dataGridParts.TabIndex = 35;
             // 
-            // dataGridView2
+            // dataGridAssociated
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(549, 511);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(715, 225);
-            this.dataGridView2.TabIndex = 36;
+            this.dataGridAssociated.AllowUserToAddRows = false;
+            this.dataGridAssociated.AllowUserToDeleteRows = false;
+            this.dataGridAssociated.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAssociated.Location = new System.Drawing.Point(549, 511);
+            this.dataGridAssociated.Name = "dataGridAssociated";
+            this.dataGridAssociated.ReadOnly = true;
+            this.dataGridAssociated.RowHeadersWidth = 51;
+            this.dataGridAssociated.RowTemplate.Height = 29;
+            this.dataGridAssociated.Size = new System.Drawing.Size(715, 225);
+            this.dataGridAssociated.TabIndex = 36;
+            this.dataGridAssociated.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // addButton
             // 
@@ -212,6 +217,7 @@ namespace InventoryManager
             this.addButton.TabIndex = 37;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // deleteButton
             // 
@@ -221,6 +227,7 @@ namespace InventoryManager
             this.deleteButton.TabIndex = 38;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // saveButton
             // 
@@ -230,6 +237,7 @@ namespace InventoryManager
             this.saveButton.TabIndex = 39;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -241,17 +249,47 @@ namespace InventoryManager
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 20);
+            this.label8.TabIndex = 41;
+            this.label8.Text = "label8";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(549, 122);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(134, 20);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "All Candidate Parts";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(549, 475);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(230, 20);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Parts Associated with this Product";
+            // 
             // addProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1326, 902);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridAssociated);
+            this.Controls.Add(this.dataGridParts);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.label1);
@@ -269,8 +307,9 @@ namespace InventoryManager
             this.Controls.Add(this.label2);
             this.Name = "addProduct";
             this.Text = "addProduct";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.addProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridParts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridAssociated)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,11 +332,14 @@ namespace InventoryManager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridParts;
+        private System.Windows.Forms.DataGridView dataGridAssociated;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

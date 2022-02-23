@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    class InHouse
+    public class InHouse: Part
     {
         public int machineID;
+
+        public InHouse(String name, decimal price, int stock, int min, int max, int machineID) : base(name, price, stock, min, max)
+        {
+            this.machineID = machineID;
+        }
 
         public int MachineID { get => machineID; set => machineID = value; }
     }

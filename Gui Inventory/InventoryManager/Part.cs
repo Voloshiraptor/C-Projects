@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    abstract class Part
+   public abstract class Part
     {
         private int partID;
         private string name;
@@ -15,6 +15,17 @@ namespace InventoryManager
         private int min;
         private int max;
 
+        public Part(String name, decimal price, int stock, int min, int max)
+        {
+            Random rnd = new Random();
+            partID = rnd.Next();
+            this.name = name;
+            this.price = price;
+            this.inStock = stock;
+            this.min = min;
+            this.max = max;
+
+        }
         public int PartID { get => partID; set => partID = value; }
         public string Name { get => name; set => name = value; }
         public decimal Price { get => price; set => price = value; }
